@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+    <title>Tus datos · Coffee Hempany</title>
+ 
+    <!-- FUENTES DE GOOGLE -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Karla:wght@400;500;700&display=swap" rel="stylesheet">
+ 
+    <!-- ESTILOS -->
+    <link rel="stylesheet" href="css/style.css?v=4">
+    <script src="js/api.js?v=4"></script>
+</head>
+ 
+<body>
+ 
+    <!-- CABECERA (se llena con js/layout.js) -->
+    <header class="barra" id="cabecera"></header>
+ 
+    <main>
+ 
+        <section class="pagina dos-col">
+ 
+            <!-- COLUMNA IZQUIERDA: FORMULARIO -->
+            <div>
+ 
+                <h1>
+                    ¿A dónde te lo llevamos?
+                </h1>
+ 
+                <!-- MENSAJE DE ERROR (está oculto hasta que haya un error) -->
+                <p class="error" id="error" role="alert" hidden></p>
+ 
+                <form class="formulario" id="form-datos" novalidate>
+ 
+                    <!-- NOMBRE -->
+                    <label>
+                        Nombre
+                        <input name="nombre" required>
+                    </label>
+ 
+                    <!-- CORREO -->
+                    <label>
+                        Correo
+                        <input type="email" name="correo" required>
+                    </label>
+ 
+                    <!-- PISO (las opciones las pone js/pedido.js) -->
+                    <label>
+                        Piso
+                        <select name="piso" id="piso" required></select>
+                    </label>
+ 
+                    <!-- OFICINA -->
+                    <label>
+                        Oficina
+                        <input name="oficina" required>
+                    </label>
+ 
+                    <!-- MÉTODO DE PAGO (las opciones las pone js/pedido.js) -->
+                    <label>
+                        Método de pago
+                        <select name="metodo" id="metodo" required></select>
+                    </label>
+ 
+                    <!-- BOTÓN -->
+                    <button class="btn">
+                        Enviar pedido
+                    </button>
+ 
+                </form>
+ 
+            </div>
+ 
+ 
+            <!-- COLUMNA DERECHA: RESUMEN DEL PEDIDO -->
+            <aside class="ticket">
+ 
+                <h2>
+                    Tu pedido
+                </h2>
+ 
+                <!-- PRODUCTOS ELEGIDOS (se llena con js/pedido.js) -->
+                <ul id="ticket-items"></ul>
+ 
+                <p class="total">
+                    Total <b id="ticket-total"></b>
+                </p>
+ 
+                <a href="menu.html" id="cambiar-productos">
+                    Cambiar productos
+                </a>
+ 
+            </aside>
+ 
+        </section>
+ 
+    </main>
+ 
+    <!-- PIE DE PÁGINA (se llena con js/layout.js) -->
+    <footer class="pie" id="pie"></footer>
+ 
+    <!-- SCRIPTS (el orden importa, no lo cambies) -->
+    <script src="js/datos.js?v=4"></script>
+    <script src="js/layout.js?v=4"></script>
+    <script src="js/pedido.js?v=4"></script>
+ 
+</body>
+</html>
+ 

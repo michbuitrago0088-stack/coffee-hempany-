@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Administrador · Coffee Hempany</title>
+
+    <!-- FUENTES DE GOOGLE -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Karla:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- ESTILOS -->
+    <link rel="stylesheet" href="css/style.css?v=3">
+</head>
+
+<body>
+
+    <!-- CABECERA (se llena con js/layout.js) -->
+    <header class="barra" id="cabecera"></header>
+
+    <main>
+
+        <!-- ========================================
+             VISTA 1: INICIO DE SESIÓN
+             (js/admin.js la oculta al entrar)
+        ======================================== -->
+        <section class="pagina estrecha" id="vista-login">
+
+            <h1>
+                Acceso de administrador
+            </h1>
+
+            <!-- MENSAJE DE ERROR (oculto hasta que haya un error) -->
+            <p class="error" id="error-login" role="alert" hidden></p>
+
+            <form class="formulario" id="form-login">
+
+                <!-- USUARIO -->
+                <label>
+                    Usuario
+                    <input name="usuario" required autofocus>
+                </label>
+
+                <!-- CONTRASEÑA -->
+                <label>
+                    Contraseña
+                    <input type="password" name="clave" id="clave" required>
+                </label>
+
+                <!-- MOSTRAR CONTRASEÑA -->
+                <label class="check">
+                    <input type="checkbox" id="ver-clave">
+                    Mostrar contraseña
+                </label>
+
+                <!-- BOTÓN -->
+                <button class="btn">
+                    Iniciar sesión
+                </button>
+
+            </form>
+
+        </section>
+
+
+        <!-- ========================================
+             VISTA 2: PANEL DEL ADMINISTRADOR
+             (está oculta hasta iniciar sesión)
+        ======================================== -->
+        <section class="pagina ancha" id="vista-panel" hidden>
+
+            <!-- TÍTULO Y BOTÓN CERRAR SESIÓN -->
+            <div class="fila-titulo">
+
+                <h1>
+                    Panel
+                </h1>
+
+                <button class="btn secundario" id="salir">
+                    Cerrar sesión
+                </button>
+
+            </div>
+
+
+            <!-- PESTAÑAS -->
+            <div class="pestanas">
+
+                <button class="pestana activa" data-vista="pedidos">
+                    Pedidos
+                </button>
+
+                <button class="pestana" data-vista="catalogo">
+                    Catálogo
+                </button>
+
+                <button class="pestana" data-vista="nuevo">
+                    Nuevo producto
+                </button>
+
+            </div>
+
+
+            <!-- PESTAÑA PEDIDOS (se llena con js/admin.js) -->
+            <div id="panel-pedidos"></div>
+
+
+            <!-- PESTAÑA CATÁLOGO (solo la lista de productos) -->
+            <div id="panel-catalogo" hidden>
+
+                <!-- LISTA DE PRODUCTOS (se llena con js/admin.js) -->
+                <ul class="productos" id="lista-admin"></ul>
+
+            </div>
+
+
+            <!-- PESTAÑA NUEVO PRODUCTO (formulario para agregar) -->
+            <div id="panel-nuevo" hidden>
+
+                <!-- MENSAJE DE ERROR DEL PRODUCTO (oculto hasta que haya un error) -->
+                <p class="error" id="error-producto" role="alert" hidden></p>
+
+                <!-- FORMULARIO PARA AGREGAR PRODUCTO -->
+                <form class="formulario en-linea nuevo-producto" id="form-producto">
+
+                    <!-- NOMBRE -->
+                    <label>
+                        Nombre
+                        <input name="nombre" required>
+                    </label>
+
+                    <!-- PRECIO -->
+                    <label>
+                        Precio
+                        <input type="number" name="precio" min="0" step="100" required>
+                    </label>
+
+                    <!-- DESCRIPCIÓN -->
+                    <label class="campo-ancho">
+                        Descripción
+                        <input name="descripcion" maxlength="120" placeholder="Ej: Espresso con leche vaporizada">
+                    </label>
+
+                    <!-- IMAGEN (opcional) -->
+                    <label class="campo-ancho">
+                        Imagen (opcional)
+                        <input type="file" name="imagen" accept="image/*">
+                    </label>
+
+                    <!-- BOTÓN -->
+                    <button class="btn campo-ancho">
+                        Agregar producto
+                    </button>
+
+                </form>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- PIE DE PÁGINA (se llena con js/layout.js) -->
+    <footer class="pie" id="pie"></footer>
+
+    <!-- SCRIPTS (el orden importa, no lo cambies) -->
+    <script src="js/api.js?v=3"></script>
+    <script src="js/datos.js?v=3"></script>
+    <script src="js/layout.js?v=3"></script>
+    <script src="js/admin.js?v=3"></script>
+
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+    <title>Inicio · Coffee Hempany</title>
+ 
+    <!-- FUENTES DE GOOGLE -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Karla:wght@400;500;700&display=swap" rel="stylesheet">
+ 
+    <!-- ESTILOS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+ 
+<body>
+ 
+    <!-- CABECERA (se llena con js/layout.js) -->
+    <header class="barra" id="cabecera"></header>
+ 
+    <main>
+ 
+        <section class="hero">
+ 
+            <!-- TEXTO PRINCIPAL -->
+            <div class="hero-texto">
+ 
+                <h1>
+                    Café de verdad,<br>directo a tu oficina.
+                </h1>
+ 
+                <p>
+                    Elige tu bebida o postre, dinos el piso y la oficina,
+                    y te lo llevamos.
+                </p>
+ 
+                <a class="btn" href="menu.html">
+                    Hacer un pedido
+                </a>
+ 
+            </div>
+ 
+ 
+            <!-- CARRUSEL DE IMÁGENES (se mueve con js/carrusel.js) -->
+            <div class="carrusel" role="region" aria-roledescription="carrusel" aria-label="Nuestros productos">
+ 
+                <div class="carrusel-pista" id="pista">
+ 
+                    <figure class="diapositiva">
+                        <img src="img/cafe 1.jpg" alt="Capuccino con espuma cremosa">
+                    </figure>
+ 
+                    <figure class="diapositiva">
+                        <img src="img/cafe2.jpg" alt="Frappe de café frío">
+                    </figure>
+ 
+                    <figure class="diapositiva">
+                        <img src="img/cafe3.jpg" alt="Cheesecake de la casa">
+                    </figure>
+ 
+                    <figure class="diapositiva">
+                        <img src="img/cafe4.jpg" alt="Brownie de chocolate artesanal">
+                    </figure>
+ 
+                </div>
+ 
+                <!-- PUNTOS DEL CARRUSEL (se llenan con js/carrusel.js) -->
+                <div class="carrusel-puntos" id="puntos"></div>
+ 
+            </div>
+ 
+        </section>
+ 
+    </main>
+ 
+    <!-- PIE DE PÁGINA (se llena con js/layout.js) -->
+    <footer class="pie" id="pie"></footer>
+ 
+    <!-- SCRIPTS (el orden importa, no lo cambies) -->
+    <script src="js/datos.js"></script>
+    <script src="js/layout.js"></script>
+    <script src="js/carrusel.js"></script>
+ 
+</body>
+</html>
+ 

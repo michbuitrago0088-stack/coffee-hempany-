@@ -1,0 +1,230 @@
+:root{
+  --espresso:#4a2b1a;
+  --canamo:#845b38;
+  --canamo-osc:#e18bba;
+  --hoja:#f0d6e7;
+  --papel:#f5e2ef;
+  --crema:#cd9a3a;
+  --linea:#d995b3;
+  --error:#a63a2a;
+  --titulo:"Bricolage Grotesque",system-ui,sans-serif;
+  --texto:"Karla",system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0}
+body{font-family:var(--texto);
+  background:var(--papel);
+  color:var(--espresso);
+  line-height:1.6;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column
+}
+main{flex:1}
+h1,h2{font-family:var(--titulo);line-height:1.1}
+h1{font-size:clamp(2rem,5vw,3.4rem);font-weight:800;margin-bottom:1rem}
+h2{font-size:1.2rem;font-weight:700}
+a{color:var(--canamo-osc)}
+:focus-visible{outline:3px solid var(--crema);outline-offset:2px}
+[hidden]{display:none!important}
+
+/* -- Barra superior -- */
+.barra{display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:1rem;padding:1rem 5vw;
+  background:var(--espresso);
+  color:var(--hoja);
+  position:relative
+}
+.logo{font-family:var(--titulo);
+  font-weight:800;
+  font-size:1.3rem;
+  color:var(--hoja);
+  text-decoration:none
+}
+/* -- Logo de la cafetería -- */
+.logo{display:flex;align-items:center}
+.logo img{display:block;height:45px;width:auto;max-width:100%}
+.barra nav{display:flex;gap:1.4rem;flex-wrap:wrap}
+.barra nav a{color:var(--hoja);
+  text-decoration:none;
+  padding:.2rem 0;
+  border-bottom:2px solid transparent
+}
+.barra nav a:hover,.barra nav a[aria-current="page"]{border-color:var(--crema)}
+.burger{display:none;
+  background:none;
+  border:1px solid var(--hoja);
+  color:var(--hoja);
+  padding:.4rem .8rem;
+  border-radius:6px;
+  font:inherit
+}
+
+/*-- Botones -- */
+.btn{display:inline-block;
+  background:var(--canamo);
+  color:#fff;
+  border:0;
+  padding:.8rem 1.6rem;
+  border-radius:8px;
+  font:700 1rem var(--texto);
+  cursor:pointer;
+  text-decoration:none
+}
+.btn:hover{background:var(--canamo-osc)}
+.btn:disabled{background:var(--linea);color:#fff;cursor:not-allowed}
+.btn.secundario{background:transparent;
+  color:var(--canamo-osc);
+  border:2px solid var(--canamo)
+}
+
+/* -- Pantalla principal -- */
+.hero{display:grid;grid-template-columns:1.2fr 1fr;gap:3rem;align-items:center;padding:5rem 5vw;background:var(--hoja)}
+.hero-texto{align-self:start;padding-top:4rem}
+.hero-texto{padding-top:10}
+
+/* -- Carrusel de imágenes -- */
+.carrusel{position:relative;
+  min-width:0;
+  border-radius:16px;
+  overflow:hidden;
+  background:var(--espresso)
+}
+.carrusel-pista{display:flex;will-change:transform}
+.diapositiva{flex:0 0 100%;
+  position:relative;
+  margin:0;
+  aspect-ratio:4/5;
+  background:var(--canamo)
+}
+.diapositiva img{display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover
+}
+.diapositiva figcaption{position:absolute;
+  inset:auto 0 0 0;
+  padding:3rem 1.4rem 1.2rem;
+  background:linear-gradient(to top,rgba(42,28,20,.85),transparent);
+  color:#fff;
+  font:700 1.5rem var(--titulo)
+}
+.diapositiva.sin-foto img{display:none}
+.diapositiva.sin-foto figcaption{inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:none;
+  font-size:2rem
+}
+.diapositiva:nth-child(1).sin-foto{background:var(--espresso)}
+.diapositiva:nth-child(2).sin-foto{background:var(--canamo)}
+.diapositiva:nth-child(3).sin-foto{background:#8a5a2b}
+.diapositiva:nth-child(4).sin-foto{background:#a55d84}
+.carrusel-puntos{position:absolute;
+  right:1.2rem
+  ;bottom:1.3rem;
+  display:flex;
+  gap:.5rem
+}
+.carrusel-puntos button{width:.7rem;height:.7rem;padding:0;border-radius:50%;border:2px solid #fff;background:transparent;cursor:pointer}
+.carrusel-puntos button[aria-current="true"]{background:var(--crema);border-color:var(--crema)}
+
+/*-- Páginas interiores --*/
+.pagina{max-width:760px;margin:0 auto;padding:3rem 5vw}
+.pagina.ancha{max-width:980px}
+.pagina:has(.productos){max-width:1100px}
+.pagina.estrecha{max-width:440px}
+.pagina.centro{text-align:center}
+.pagina.centro p{margin-bottom:1.5rem}
+.pagina.dos-col{max-width:980px;display:grid;grid-template-columns:1.2fr 1fr;gap:3rem}
+.pagina p+p{margin-top:1rem}
+.datos{display:grid;grid-template-columns:8rem 1fr;gap:.6rem 1rem}
+.datos dt{font-weight:700}
+.vacio{padding:2rem;border:2px dashed var(--linea);border-radius:10px;text-align:center}
+
+/* -- Carta -- */
+.productos{list-style:none;padding:0;margin:1.5rem 0;display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.productos .vacio,.productos .error{grid-column:1 / -1}
+.producto{display:flex;flex-direction:column;gap:1rem;padding:1rem;background:#fff;border:1px solid var(--linea);border-radius:14px;box-shadow:0 2px 8px rgba(74,43,26,.08)}
+.producto.inactivo{opacity:.5}
+.precio{color:var(--canamo-osc);font-weight:700}
+
+/* -- Imagen y descripción de cada producto -- */
+.producto-info{flex:1;min-width:0}
+.producto-img{display:block;
+  width:100%;
+  aspect-ratio:4/3;
+  object-fit:cover;
+  border-radius:10px;
+  margin-bottom:.6rem;
+  background:var(--hoja)
+}
+.producto .descripcion{font-size:.95rem;margin-top:.2rem;opacity:.85}
+
+/* -- Formulario para agregar producto (panel admin) -- */
+.formulario.en-linea.nuevo-producto{grid-template-columns:2fr 1fr;align-items:end}
+.nuevo-producto .campo-ancho{grid-column:1 / -1}
+.nuevo-producto button{justify-self:start}
+
+/* -- Botones de cada producto en el panel admin -- */
+.acciones-producto{display:flex;flex-direction:column;gap:.5rem}
+.acciones-producto .btn{text-align:center}
+.btn.secundario.peligro{color:var(--error);border-color:var(--error)}
+.cantidad{display:flex;align-items:center;justify-content:center;gap:.4rem}
+.cantidad button{width:2.4rem;height:2.4rem;border-radius:50%;border:2px solid var(--canamo);background:#fff;color:var(--canamo-osc);font-size:1.2rem;cursor:pointer}
+.cantidad input{width:3.2rem;text-align:center;font:inherit;padding:.4rem;border:1px solid var(--linea);border-radius:6px}
+.resumen-fijo{position:sticky;bottom:0;display:flex;justify-content:space-between;align-items:center;padding:1rem;background:var(--espresso);color:var(--hoja);border-radius:10px 10px 0 0}
+
+/*-- Formularios -- */
+.formulario{display:grid;gap:1rem}
+.formulario label{display:grid;gap:.3rem;font-weight:700}
+.formulario input,.formulario select,.pedido select{font:inherit;padding:.65rem;border:1px solid var(--linea);border-radius:8px;background:#fff}
+.formulario.en-linea{grid-template-columns:2fr 1fr auto;align-items:end}
+.check{display:flex!important;align-items:center;gap:.5rem;font-weight:400!important}
+.error{background:#e1a89b;color:var(--error);padding:.8rem 1rem;border-radius:8px;margin-bottom:1rem;font-weight:700}
+input.invalido,select.invalido{border-color:var(--error)!important}
+
+/* -- Resumen del pedido -- */
+.ticket{background:var(--hoja);padding:1.5rem;border-radius:12px;align-self:start}
+.ticket ul{list-style:none;padding:0;margin:1rem 0}
+.ticket li{display:flex;justify-content:space-between;padding:.4rem 0;border-bottom:1px solid var(--linea)}
+.total{display:flex;justify-content:space-between;font-size:1.2rem;margin-bottom:1rem}
+
+/* -- Panel de administrador -- */
+.pedido{border:1px solid var(--linea);border-left:6px solid var(--crema);border-radius:10px;padding:1rem 1.2rem;margin-bottom:1rem;background:#fff}
+.pedido.estado-en_preparacion{border-left-color:var(--canamo)}
+.pedido.estado-entregado{border-left-color:var(--linea);opacity:.7}
+.pedido.estado-anulado{border-left-color:var(--error);opacity:.6}
+.pedido.estado-anulado h2{text-decoration:line-through}
+.pedido header,.pedido footer{display:flex;justify-content:space-between;align-items:center;gap:1rem}
+.pedido ul{margin:.6rem 0 .8rem 1.2rem}
+.etiqueta{background:var(--hoja);padding:.15rem .7rem;border-radius:99px;font-size:.85rem;font-weight:700}
+.fila-titulo{display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-bottom:1rem}
+.pestanas{display:flex;gap:.5rem;border-bottom:2px solid var(--linea);margin-bottom:1.5rem}
+.pestana{background:none;border:0;padding:.7rem 1.2rem;font:700 1rem var(--texto);color:var(--espresso);cursor:pointer;border-bottom:3px solid transparent;margin-bottom:-2px}
+.pestana.activa{border-color:var(--canamo);color:var(--canamo-osc)}
+
+.pie{padding:1.5rem 5vw;text-align:center;background:var(--espresso);color:var(--hoja);font-size:.9rem}
+/* -- Fondo propio de Nosotros y Contacto -- */
+.fondo-propio{background:var(--hoja)}
+
+/* -- Tableta: 2 productos por fila -- */
+@media (max-width:980px){
+  .productos{grid-template-columns:repeat(2,1fr)}
+}
+
+/* -- Celular -- */
+@media (max-width:760px){
+  .burger{display:block}
+  .barra nav{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;background:var(--espresso);padding:1rem 5vw;z-index:5}
+  .barra nav.abierto{display:flex}
+  .hero,.pagina.dos-col,.formulario.en-linea{grid-template-columns:1fr}
+  .formulario.en-linea.nuevo-producto{grid-template-columns:1fr}
+  .diapositiva{aspect-ratio:4/3}
+  .productos{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  *{transition:none!important;animation:none!important}
+}
